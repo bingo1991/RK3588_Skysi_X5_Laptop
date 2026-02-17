@@ -120,12 +120,10 @@
 			};
 		};
 	};
-
 	vcc3v3_lcd: vcc3v3-lcd {
 		compatible = "regulator-fixed";
 		regulator-name = "vcc3v3_lcd";
-		vin-supply = <&vcc3v3_sys>;
-
+		vin-supply = <&vcc_3v3_s0>;
 	};
 
 	es8326_sound: es8326-sound {
@@ -140,10 +138,8 @@
 				"Headphone", "HPOL",
 				"Headphone", "HPOR",
 				"Headphone", "Headphone Power",
-				"Headphone", "Headphone Power",
 				"Speaker", "HPOL",
 				"Speaker", "HPOR",
-				"Speaker", "Speaker Power",
 				"Speaker", "Speaker Power",
 				"MIC1", "Headset Mic",
 				"MIC2", "Main Mic";
@@ -236,12 +232,6 @@
 		reset-gpios = <&gpio0 RK_PC7 GPIO_ACTIVE_LOW>;
 	};
 
-	vcc3v3_lcd: vcc3v3-lcd {
-		compatible = "regulator-fixed";
-		regulator-name = "vcc3v3_lcd";
-		vin-supply = <&vcc_3v3_s0>;
-	};
-
 	vcc3v3_pcie30: vcc3v3-pcie30 {
 		compatible = "regulator-fixed";
 		regulator-name = "vcc3v3_pcie30";
@@ -259,7 +249,6 @@
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
 		vin-supply = <&vcc12v_dcin>;
-		phandle = <0x4b8>;
 	};
 
 	vccio_1v8: vccio-1v8 {
@@ -355,7 +344,6 @@
 		compatible = "charge,led";
 		in-charge-gpio = <&gpio3 RK_PD4 GPIO_ACTIVE_HIGH>;
 		charge-full-gpio = <&gpio3 RK_PD3 GPIO_ACTIVE_HIGH>;
-		phandle = <0x4c0>;
 	};
 
 	charger: charger {
@@ -1085,14 +1073,12 @@
 	sdio-pwrseq {
 		wifi_enable_h: wifi-enable-h {
 			rockchip,pins = <0 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
-			phandle = <0x1d8>;
 		};
 	};
 
 	wifi_vbat {
 		wifi_3v3: wifi-vbat {
 			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>;
-			phandle = <0x1dd>;
 		};
 	};
 
