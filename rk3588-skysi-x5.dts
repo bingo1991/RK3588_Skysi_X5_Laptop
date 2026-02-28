@@ -177,10 +177,10 @@
 			default-state = "on";
 		};
 
-		led_charge_fuu: led-charge-full {
+		led_charge_full: led-charge-full {
 			label = "chargeok";
 			gpios = <&gpio3 RK_PD3 GPIO_ACTIVE_HIGH>;
-			linux,default-trigger = "cw2015-battery-full";
+			linux,default-trigger = "cw2017-battery-full";
 		};
 	};
 
@@ -911,19 +911,6 @@
 &i2c3 {
 	status = "okay";
 
-	es8316: es8316@10 {
-		status = "okay";
-		#sound-dai-cells = <0>;
-		compatible = "everest,es8316";
-		reg = <0x10>;
-		clocks = <&mclkout_i2s0>;
-		clock-names = "mclk";
-		assigned-clocks = <&mclkout_i2s0>;
-		assigned-clock-rates = <12288000>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&i2s0_mclk>;
-	};
-	
 	es8326: es8326@19 {
 		compatible = "everest,es8326";
 		status = "okay";
